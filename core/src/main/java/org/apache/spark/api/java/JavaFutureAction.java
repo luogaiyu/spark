@@ -24,6 +24,7 @@ import java.util.concurrent.Future;
 public interface JavaFutureAction<T> extends Future<T> {
 
   /**
+   * 返回 当前任务执行的所有JobIds
    * Returns the job IDs run by the underlying async operation.
    *
    * This returns the current snapshot of the job list. Certain operations may run multiple
