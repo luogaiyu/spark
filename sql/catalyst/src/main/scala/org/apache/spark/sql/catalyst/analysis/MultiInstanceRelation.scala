@@ -17,6 +17,9 @@
 
 package org.apache.spark.sql.catalyst.analysis
 
+/**
+查询操作符能够生成具有全局唯一表达式 ID 的新实例。这是为了保证同一属性在不同操作符中的引用不会引起混淆，避免导致属性 ID 重复的问题。
+**/
 import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
 
 /**

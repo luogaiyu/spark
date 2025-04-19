@@ -44,6 +44,7 @@ import org.apache.spark.sql.types.UpCastRule.numericPrecedence
  * double's range is larger than decimal, and yet decimal is more precise than double, but in
  * union we would cast the decimal into double).
  */
+ // 不同数据源 强转成 可兼容的类型，处理场景包括选择，比较，操作数不匹配等等情况
 object TypeCoercion extends TypeCoercionBase {
 
   override def typeCoercionRules: List[Rule[LogicalPlan]] =

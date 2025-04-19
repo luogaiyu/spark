@@ -30,6 +30,7 @@ import org.apache.spark.util.ArrayImplicits._
  * [[UnresolvedRelation]] with a specific [[LogicalPlan]] with resolved metadata, e.g. with
  * [[UnresolvedCatalogRelation]] or [[View]].
  */
+ // 提供元数据解析功能
 trait RelationMetadataProvider extends LookupCatalog {
   type RelationsWithResolvedMetadata = HashMap[RelationId, LogicalPlan]
 

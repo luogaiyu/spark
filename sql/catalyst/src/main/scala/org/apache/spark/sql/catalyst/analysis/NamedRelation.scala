@@ -18,7 +18,10 @@
 package org.apache.spark.sql.catalyst.analysis
 
 import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
-
+/**
+总体来看，NamedRelation 提供了一个简单的机制来定义带有明确名称的 SQL 关系，并为管理模式解析提供了灵活性。
+它在逻辑计划中扮演着关键角色，通过描述关系和模式的属性来帮助 Spark 分析和优化 SQL 查询。
+**/
 trait NamedRelation extends LogicalPlan {
   def name: String
 

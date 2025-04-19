@@ -26,6 +26,13 @@ import org.apache.spark.sql.catalyst.SQLConfHelper
  *
  * Variable substitution is controlled by `SQLConf.variableSubstituteEnabled`.
  */
+ /**
+ 用于替换SQL中的变量引用，支持如下的格式
+ ${var} 替换当前的变量引用
+ ${system:var} 替换系统变量
+ ${env:var} 替换环境变量
+ 变量替换的控制由 `SQLConf.variableSubstituteEnabled` 决定 
+ **/
 class VariableSubstitution extends SQLConfHelper {
 
   private val provider = new ConfigProvider {

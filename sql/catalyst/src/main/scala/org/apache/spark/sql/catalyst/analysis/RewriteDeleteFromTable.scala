@@ -35,6 +35,7 @@ import org.apache.spark.sql.util.CaseInsensitiveStringMap
  * statement can be handled by simply passing delete filters to the connector. If so, the optimizer
  * will discard the rewritten plan and will allow the data source to delete using filters.
  */
+ // 用于支持 Delete 这个策略
 object RewriteDeleteFromTable extends RewriteRowLevelCommand {
 
   override def apply(plan: LogicalPlan): LogicalPlan = plan resolveOperators {

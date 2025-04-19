@@ -23,7 +23,9 @@ import org.apache.spark.sql.catalyst.expressions.{Alias, Attribute, AttributeMap
 import org.apache.spark.sql.catalyst.plans.logical._
 import org.apache.spark.sql.catalyst.rules.Rule
 import org.apache.spark.sql.catalyst.trees.TreePattern._
-
+/**
+用于在Spark SQL中消除重复的逻辑关系
+**/
 object DeduplicateRelations extends Rule[LogicalPlan] {
 
   type ExprIdMap = mutable.HashMap[Class[_], mutable.HashSet[Long]]

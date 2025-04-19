@@ -28,6 +28,7 @@ import org.apache.spark.sql.catalyst.expressions.{Expression, TimeAdd}
 /**
  * Helper resolver for [[TimeAdd]] which is produced by resolving [[BinaryArithmetic]] nodes.
  */
+ // 主要用于处理 date 中的转换逻辑
 class TimeAddResolver(
     expressionResolver: ExpressionResolver,
     timezoneAwareExpressionResolver: TimezoneAwareExpressionResolver)

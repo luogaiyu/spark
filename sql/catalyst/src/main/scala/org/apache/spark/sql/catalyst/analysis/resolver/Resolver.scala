@@ -85,6 +85,7 @@ import org.apache.spark.sql.types.BooleanType
  * @param metadataResolverExtensions A list of [[ResolverExtension]]s that will be used to resolve
  *   relation operators in [[MetadataResolver]].
  */
+ // 负责将 逻辑计划 转换成已解析的逻辑计划，复杂逻辑计划解析，元数据解析，作用域管理和错误解析
 class Resolver(
     catalogManager: CatalogManager,
     override val extensions: Seq[ResolverExtension] = Seq.empty,

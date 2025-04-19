@@ -47,6 +47,8 @@ import org.apache.spark.sql.connector.catalog.CatalogManager
  * 5. Resolves the columns to outer references with the outer plan if we are resolving subquery
  *    expressions.
  */
+ //  是 Spark SQL 中处理聚合查询的关键部分，确保聚合和分组的列能够正确解析。通过分别处理未解析的属性引用和聚合函数，它增强了 SQL 解析的准确性和灵活性。
+ // 如果在使用聚合时出现了别名或列无法被解析的情况，该类能够有效地管理这些问题，确保查询的有效执行。
 class ResolveReferencesInAggregate(val catalogManager: CatalogManager) extends SQLConfHelper
   with ColumnResolutionHelper with AliasHelper {
 

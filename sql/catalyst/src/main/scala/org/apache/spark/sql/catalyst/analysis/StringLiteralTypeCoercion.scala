@@ -25,6 +25,7 @@ import org.apache.spark.sql.types.{IntegerType, StringType}
  * Type coercion helper that matches against [[DateAdd]] and [[DateSub]] expressions in order to
  * type coerce the second argument to [[IntegerType]], if necessary.
  */
+ //提高了SQL查询的可靠性，确保类型的正确性，主要为日期运算的方式进行兜底操作
 object StringLiteralTypeCoercion {
   def apply(expression: Expression): Expression = expression match {
     case DateAdd(l, r) if r.dataType.isInstanceOf[StringType] && r.foldable =>

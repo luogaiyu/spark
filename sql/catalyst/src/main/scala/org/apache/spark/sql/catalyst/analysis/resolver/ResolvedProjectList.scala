@@ -29,6 +29,7 @@ import org.apache.spark.sql.catalyst.expressions.NamedExpression
  *                   an aggregate expression.
  *  - hasLateralColumnAlias: True if the resolved project list contains any lateral column aliases.
  */
+ // 用来跟踪项目列表的解析状态
 case class ResolvedProjectList(
     expressions: Seq[NamedExpression],
     hasAggregateExpressions: Boolean,

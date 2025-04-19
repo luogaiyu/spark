@@ -24,7 +24,7 @@ import org.apache.spark.sql.catalyst.rules.Rule
 import org.apache.spark.sql.catalyst.trees.TreePattern.{COMMAND, PARAMETER, PARAMETERIZED_QUERY, TreePattern, UNRESOLVED_WITH}
 import org.apache.spark.sql.errors.QueryErrorsBase
 import org.apache.spark.sql.types.DataType
-
+// 允许在SQL查询中以动态的方式 指定参数，提高查询的灵活性和可读性
 sealed trait Parameter extends LeafExpression with Unevaluable {
   override lazy val resolved: Boolean = false
 

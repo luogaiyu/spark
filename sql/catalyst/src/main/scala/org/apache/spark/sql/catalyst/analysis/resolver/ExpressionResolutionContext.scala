@@ -31,6 +31,7 @@ package org.apache.spark.sql.catalyst.analysis.resolver
  * @param hasLateralColumnAlias A flag that highlights that a specific node corresponding to
  *                        [[ExpressionResolutionContext]] has LCA in its subtree.
  */
+ // 在Sark中的作用是 支持表达式解析中状态传递，主要在 聚合 属性 和lateral 列别名的查询
 class ExpressionResolutionContext(
     var hasAggregateExpressionsInASubtree: Boolean = false,
     var hasAttributeInASubtree: Boolean = false,

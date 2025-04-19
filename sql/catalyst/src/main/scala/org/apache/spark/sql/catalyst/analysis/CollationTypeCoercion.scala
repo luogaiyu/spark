@@ -30,6 +30,16 @@ import org.apache.spark.sql.util.SchemaUtils
 /**
  * Type coercion helper that matches against expressions in order to apply collation type coercion.
  */
+ // 用于处理字符串 排序规则
+ /**
+示例：多语言支持
+假设你在一个全球范围的应用中存储用户名字，并需要按字母顺序进行排序。你的数据包含来自多个国家的字符串，例如：
+"张伟" （中文名字，汉字）
+"Alice" （英文名字，拉丁字符）
+"Émilie" （法文名字，包含重音字母）
+"Zoë" （荷兰名字，包含二分音符）
+ **/
+
 object CollationTypeCoercion {
 
   private val COLLATION_CONTEXT_TAG = new TreeNodeTag[DataType]("collationContext")
@@ -45,6 +55,7 @@ object CollationTypeCoercion {
         messageParameters = Map("expr" -> toSQLExpr(expr)))
 
     case caseWhenExpr: CaseWhen if !haveSameType(caseWhenExpr.inputTypesForMerging) =>
+      // 用于处理字符串排序规则 转换的类型强制辅助对象
       val outputStringType = findLeastCommonStringType(
         caseWhenExpr.branches.map(_._2) ++ caseWhenExpr.elseValue)
       outputStringType match {

@@ -21,6 +21,8 @@ import org.apache.spark.sql.catalyst.plans.logical.{LogicalPlan, View}
 import org.apache.spark.sql.errors.QueryCompilationErrors
 import org.apache.spark.sql.internal.SQLConf
 
+// 负责检查 视图的解析功能
+// 视图的深度限制 和解析其子逻辑计划
 object ViewResolution {
   def resolve(
       view: View,

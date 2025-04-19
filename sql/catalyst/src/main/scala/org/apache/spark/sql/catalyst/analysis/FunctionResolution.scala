@@ -38,7 +38,7 @@ import org.apache.spark.sql.connector.catalog.functions.{
 }
 import org.apache.spark.sql.errors.{DataTypeErrorsBase, QueryCompilationErrors}
 import org.apache.spark.sql.types._
-
+// 根据 查询中的未解析的函数 查找对应的函数
 class FunctionResolution(
     override val catalogManager: CatalogManager,
     relationResolution: RelationResolution)

@@ -35,6 +35,9 @@ import org.apache.spark.sql.streaming.{GroupStateTimeout, OutputMode}
 /**
  * Analyzes the presence of unsupported operations in a logical plan.
  */
+ /**
+ 确保执行Spark SQL查询中的正确性和有效性，检查识别不支持的操作
+ **/
 object UnsupportedOperationChecker extends Logging {
 
   def checkForBatch(plan: LogicalPlan): Unit = {

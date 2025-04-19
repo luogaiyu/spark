@@ -47,6 +47,10 @@ import org.apache.spark.sql.connector.catalog.CatalogManager
  * Note, 3 and 4 are actually orthogonal. If the child plan is Aggregate, 4 can only resolve columns
  * as the grouping columns, which is completely covered by 3.
  */
+ /**
+  处理排序操作的重要组件
+  处理可能的未解析列，聚合，以及排序逻辑 
+ **/
 class ResolveReferencesInSort(val catalogManager: CatalogManager)
   extends SQLConfHelper with ColumnResolutionHelper {
 

@@ -24,6 +24,7 @@ import org.apache.spark.sql.types.{AnyTimestampTypeExpression, DateType}
  * ANSI type coercion helper that matches against [[GetDateField]] expressions in order to type
  * coerce children to [[DateType]], if necessary.
  */
+ // 处理 GetDataField 表达式的类型转化逻辑，GetDateField 的子表达式能被转换为 DateType。
 object AnsiGetDateFieldOperationsTypeCoercion {
   def apply(expression: Expression): Expression = expression match {
     case g: GetDateField if AnyTimestampTypeExpression.unapply(g.child) =>

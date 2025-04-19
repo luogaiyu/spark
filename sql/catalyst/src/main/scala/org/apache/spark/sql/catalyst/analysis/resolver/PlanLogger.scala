@@ -27,6 +27,7 @@ import org.apache.spark.sql.internal.SQLConf
 /**
  * [[PlanLogger]] is used by the [[Resolver]] to log intermediate resolution results.
  */
+ // 用于追踪解析的中间结果
 class PlanLogger extends Logging {
   private val planChangeLogLevel = SQLConf.get.planChangeLogLevel
   private val expressionTreeChangeLogLevel = SQLConf.get.expressionTreeChangeLogLevel

@@ -23,7 +23,7 @@ import org.apache.spark.sql.catalyst.InternalRow
 import org.apache.spark.sql.catalyst.catalog.CatalogTypes.TablePartitionSpec
 import org.apache.spark.sql.catalyst.util.{quoteIdentifier, quoteNameParts}
 import org.apache.spark.sql.types.StructType
-
+// 用于表示 多个分区找不到的情况
 // any changes to this class should be backward compatible as it may be used by external connectors
 class NoSuchPartitionException private(
     message: String,

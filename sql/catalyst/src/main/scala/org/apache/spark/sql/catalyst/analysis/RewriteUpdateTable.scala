@@ -33,6 +33,7 @@ import org.apache.spark.sql.util.CaseInsensitiveStringMap
  *
  * This rule assumes the commands have been fully resolved and all assignments have been aligned.
  */
+ // 使用行级 更新操作，主要用来对行级别的更新操作进行重写
 object RewriteUpdateTable extends RewriteRowLevelCommand {
 
   override def apply(plan: LogicalPlan): LogicalPlan = plan resolveOperators {

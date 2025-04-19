@@ -30,6 +30,9 @@ import org.apache.spark.sql.errors.QueryCompilationErrors
  * @param function: the SQL function that this node represents.
  * @param child: the SQL function body.
  */
+ /**
+ 确保 SQL查询的时候 处理正确的SQL函数，包括对输入参数的验证，确保不会传递未实现表值参数
+ **/
 case class SQLFunctionNode(
     function: SQLFunction,
     child: LogicalPlan) extends UnaryNode {

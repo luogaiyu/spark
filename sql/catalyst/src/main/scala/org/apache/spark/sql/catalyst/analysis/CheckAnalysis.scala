@@ -39,6 +39,8 @@ import org.apache.spark.util.ArrayImplicits._
 /**
  * Throws user facing errors when passed invalid queries that fail to analyze.
  */
+ // 用于SQL 解析的分析检查机制
+ // 主要是用来对语法和语义进行全面的检查
 trait CheckAnalysis extends LookupCatalog with QueryErrorsBase with PlanToString {
 
   protected def isView(nameParts: Seq[String]): Boolean

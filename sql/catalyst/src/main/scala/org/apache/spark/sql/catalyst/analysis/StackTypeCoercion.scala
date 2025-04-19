@@ -24,6 +24,7 @@ import org.apache.spark.sql.types.NullType
  * Type coercion helper that matches against [[Stack]] expressions in order to type coerce children
  * that are of [[NullType]] to the expected column type.
  */
+ // 处理Stack 表达式类型的强制转换
 object StackTypeCoercion {
   def apply(expression: Expression): Expression = expression match {
     case s @ Stack(children) if s.hasFoldableNumRows =>

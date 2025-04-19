@@ -38,6 +38,7 @@ import org.apache.spark.sql.util.CaseInsensitiveStringMap
  *
  * This rule assumes the commands have been fully resolved and all assignments have been aligned.
  */
+ // 处理SQL中的merge操作，用于重写合并操作
 object RewriteMergeIntoTable extends RewriteRowLevelCommand with PredicateHelper {
 
   private final val ROW_FROM_SOURCE = "__row_from_source"

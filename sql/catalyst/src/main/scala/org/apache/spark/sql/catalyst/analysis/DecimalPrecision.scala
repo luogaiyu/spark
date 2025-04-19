@@ -47,6 +47,10 @@ import org.apache.spark.sql.catalyst.expressions._
  * - Literals INT and LONG get turned into DECIMAL with the precision strictly needed by the value
  */
 // scalastyle:on
+/**
+处理和传播固定精度小数的精度和小数位数。这一逻辑在 Apache Spark SQL 中至关重要
+主要是对 小数类型 进行 精度 和 小数位数 的计算和传播  
+**/
 object DecimalPrecision extends TypeCoercionRule {
   override def transform: PartialFunction[Expression, Expression] = {
     // Skip nodes whose children have not been resolved yet

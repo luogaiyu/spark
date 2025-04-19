@@ -13,10 +13,10 @@
  *
  * This file is an adaptation of Presto's presto-parser/src/main/antlr4/com/facebook/presto/sql/parser/SqlBase.g4 grammar.
  */
-
+// 用来 定义单词
 lexer grammar SqlBaseLexer;
 
-@members {
+@members {// 定义词法分析器的成员部分
   /**
    * When true, parser should throw ParseException for unclosed bracketed comment.
    */
@@ -118,6 +118,7 @@ BANG: '!';
 // Start of the keywords list
 //============================
 //--SPARK-KEYWORD-LIST-START
+// 关键词定义
 ADD: 'ADD';
 AFTER: 'AFTER';
 AGGREGATE: 'AGGREGATE';
@@ -130,6 +131,7 @@ ANTI: 'ANTI';
 ANY: 'ANY';
 ANY_VALUE: 'ANY_VALUE';
 ARCHIVE: 'ARCHIVE';
+// 增加复杂层级技术
 ARRAY: 'ARRAY' {incComplexTypeLevelCounter();};
 AS: 'AS';
 ASC: 'ASC';

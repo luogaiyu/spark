@@ -20,7 +20,9 @@ package org.apache.spark.sql.catalyst.analysis
 import java.util.LinkedHashMap
 
 import org.apache.spark.sql.catalyst.expressions._
-
+/**
+用于收集 给定表达式 序列中的非确定性表达
+**/
 object NondeterministicExpressionCollection {
   def getNondeterministicToAttributes(
       expressions: Seq[Expression]): LinkedHashMap[Expression, NamedExpression] = {

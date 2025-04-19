@@ -97,6 +97,7 @@ import org.apache.spark.sql.internal.SQLConf
  *   - Transformed outputs of lower scopes (e.g. type-coerced outputs of [[Union]]'s children).
  *   - Output of a current operator that is being resolved (leaf nodes like [[Relations]]).
  */
+ //  用于解释 表示符的崇勇 和 作用域的关系
 class NameScope(val output: Seq[Attribute] = Seq.empty) extends SQLConfHelper {
 
   /**

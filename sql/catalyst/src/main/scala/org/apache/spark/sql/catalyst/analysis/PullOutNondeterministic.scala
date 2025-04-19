@@ -27,6 +27,9 @@ import org.apache.spark.sql.catalyst.rules.Rule
  * Pulls out nondeterministic expressions from LogicalPlan which is not Project or Filter,
  * put them into an inner Project and finally project them away at the outer Project.
  */
+ /**
+ 处理逻辑计划中的非确定性表达式
+ **/
 object PullOutNondeterministic extends Rule[LogicalPlan] {
   override def apply(plan: LogicalPlan): LogicalPlan = plan resolveOperatorsUp applyLocally
 

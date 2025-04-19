@@ -54,6 +54,7 @@ import org.apache.spark.sql.types.{BooleanType, DataType, MetadataBuilder, Struc
  * conditions that must never be false no matter which SQL query or DataFrame program was provided.
  * The validation approach is single-pass, post-order, complementary to the resolution process.
  */
+ // 通过单列和多列的方法 进行前序和后序 方式进行校验和验证
 class ResolutionValidator {
   private val expressionResolutionValidator = new ExpressionResolutionValidator(this)
 

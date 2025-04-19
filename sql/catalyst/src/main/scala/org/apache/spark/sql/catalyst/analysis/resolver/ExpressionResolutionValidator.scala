@@ -35,6 +35,7 @@ import org.apache.spark.sql.types.BooleanType
  * [[ResolutionValidator]]. These two components work together recursively validating the
  * logical plan. You can find more info in the [[ResolutionValidator]] scaladoc.
  */
+ // 在表达式 解析和分析过程中，SQL 结构是正确性，并且所有表达式的语义是有效的
 class ExpressionResolutionValidator(resolutionValidator: ResolutionValidator) {
 
   /**

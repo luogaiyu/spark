@@ -28,6 +28,9 @@ import org.apache.spark.sql.types.{DataType, DecimalExpression, DecimalType, Dou
  * Type coercion helper that matches against [[BinaryComparison]] and [[BinaryOperator]]
  * expression in order to type coerce children to common precision.
  */
+ /**
+ 要用于处理小数类型的精度和小数位数在 SQL 表达式中的强制转换。这对于确保在处理具有不同精度的小数时能遵循 SQL 标准是至关重要的。接下来我将详细分析这段代码的结构和功能。
+ **/
 object DecimalPrecisionTypeCoercion extends SQLConfHelper {
   import scala.math.max
 

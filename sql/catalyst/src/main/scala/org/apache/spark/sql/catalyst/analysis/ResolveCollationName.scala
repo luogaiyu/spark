@@ -27,6 +27,9 @@ import org.apache.spark.sql.catalyst.util.CollationFactory
  * Resolves fully qualified collation name and replaces [[UnresolvedCollation]] with
  * [[ResolvedCollation]].
  */
+ /**
+ 解析排序规则的名称，执行查询时正确地处理字符串比较和排序操作
+ **/
 object ResolveCollationName extends Rule[LogicalPlan] {
   def apply(plan: LogicalPlan): LogicalPlan =
     plan.resolveExpressionsWithPruning(_.containsPattern(UNRESOLVED_COLLATION), ruleId) {

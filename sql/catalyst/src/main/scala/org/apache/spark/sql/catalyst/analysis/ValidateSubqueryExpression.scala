@@ -28,6 +28,7 @@ import org.apache.spark.sql.errors.{QueryCompilationErrors, QueryErrorsBase}
 import org.apache.spark.sql.internal.SQLConf
 import org.apache.spark.util.Utils
 
+// 验证逻辑计划中，子查询表达式来避免潜在的执行错误， 内部函数检查 包括： 聚合条件 外部引用 标量子查询 lateral 子查询
 object ValidateSubqueryExpression
     extends PredicateHelper with QueryErrorsBase with PlanToString with Logging {
 

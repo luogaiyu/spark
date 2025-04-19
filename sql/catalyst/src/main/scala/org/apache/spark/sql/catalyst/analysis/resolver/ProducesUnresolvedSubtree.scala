@@ -30,6 +30,7 @@ import org.apache.spark.sql.catalyst.expressions.Expression
  * expression's resolution. When callback resolver encounters the node that is tagged, it should
  * return identity instead of trying to resolve it.
  */
+// 避免重复解析同一个未解析节点
 trait ProducesUnresolvedSubtree extends ResolvesExpressionChildren {
 
   /**

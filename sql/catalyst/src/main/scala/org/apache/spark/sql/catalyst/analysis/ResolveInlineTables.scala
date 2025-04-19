@@ -22,7 +22,7 @@ import org.apache.spark.sql.catalyst.expressions.EvalHelper
 import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
 import org.apache.spark.sql.catalyst.rules.Rule
 import org.apache.spark.sql.catalyst.trees.AlwaysProcess
-
+// 处理内连表解析的重要组件，内连
 /**
  * An analyzer rule that replaces [[UnresolvedInlineTable]] with [[ResolvedInlineTable]].
  */

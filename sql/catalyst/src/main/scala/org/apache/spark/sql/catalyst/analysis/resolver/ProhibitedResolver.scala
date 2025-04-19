@@ -28,6 +28,7 @@ import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
  * [[tryDelegateResolutionToExtensions]], because unresolved subtree resolution doesn't make sense
  * during metadata resolution traversal.
  */
+ // 阻止在不适当的上下文进行解析操作，主要目的是为了解决特定场景下的解析问题
 class ProhibitedResolver extends LogicalPlanResolver {
   def resolve(plan: LogicalPlan): LogicalPlan = {
     throw SparkException.internalError("Resolver cannot be used here")

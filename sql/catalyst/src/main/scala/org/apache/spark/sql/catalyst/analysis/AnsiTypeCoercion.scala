@@ -73,6 +73,7 @@ import org.apache.spark.sql.types.UpCastRule.numericPrecedence
  *  primitive types, in case of breaking too many existing Spark SQL queries. This is a special
  *  rule and it is not from the ANSI SQL standard.
  */
+ // 用于在Spark SQL中 实现ANSI 类型强制转换规则
 object AnsiTypeCoercion extends TypeCoercionBase {
   override def typeCoercionRules: List[Rule[LogicalPlan]] =
     UnpivotCoercion ::

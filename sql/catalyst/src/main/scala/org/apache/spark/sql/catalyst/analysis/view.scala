@@ -29,6 +29,8 @@ import org.apache.spark.sql.catalyst.rules.Rule
  * analysis stage because we want to see which part of an analyzed logical plan is generated from a
  * view.
  */
+ // 提供视图的绑定， 视图的消除，模式绑定的管理
+ // 优化了查询性能
 object EliminateView extends Rule[LogicalPlan] with CastSupport {
   override def apply(plan: LogicalPlan): LogicalPlan = plan transformUp {
     case View(_, _, child) => child

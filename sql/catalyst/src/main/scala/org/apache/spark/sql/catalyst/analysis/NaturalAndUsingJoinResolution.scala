@@ -42,7 +42,11 @@ import org.apache.spark.sql.errors.{
   QueryCompilationErrors,
   QueryExecutionErrors
 }
+/**
+这段代码为 Spark SQL 提供了自然连接和使用连接的解析支持，
+确保在进行表连接时能够正确处理连接条件和输出结构。通过充足的错误处理机制和连接逻辑的实现，使得 SQL 查询的结果更为准确和可靠。
 
+**/
 object NaturalAndUsingJoinResolution extends DataTypeErrorsBase with SQLConfHelper {
 
   /**

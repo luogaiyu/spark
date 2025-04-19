@@ -35,6 +35,8 @@ import org.apache.spark.sql.types.{DataType, MetadataBuilder}
  * children. Resolution involves checking and normalizing child output attributes
  * (data types and nullability).
  */
+ // 表示所有合并子查询输出具有相同的列，兼容的数据类型 
+ // 默认会进行解析去重和强转
 class UnionResolver(resolver: Resolver, expressionResolver: ExpressionResolver)
     extends TreeNodeResolver[Union, Union] {
   private val expressionIdAssigner = expressionResolver.getExpressionIdAssigner

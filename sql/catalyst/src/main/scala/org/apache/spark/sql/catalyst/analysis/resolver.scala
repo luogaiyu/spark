@@ -18,7 +18,7 @@
 package org.apache.spark.sql.catalyst.analysis
 
 import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
-
+// 定义了别名，可能是用来解释
 package object resolver {
 
   type LogicalPlanResolver = TreeNodeResolver[LogicalPlan, LogicalPlan]

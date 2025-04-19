@@ -23,7 +23,7 @@ import org.apache.spark.sql.catalyst.rules.Rule
 import org.apache.spark.sql.errors.QueryCompilationErrors
 import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.util.SchemaUtils
-
+// 预期 按照列名来进行解析和一致性检查
 abstract class ResolveInsertionBase extends Rule[LogicalPlan] {
   def resolver: Resolver = conf.resolver
 

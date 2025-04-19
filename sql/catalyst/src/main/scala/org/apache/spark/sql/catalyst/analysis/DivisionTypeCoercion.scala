@@ -24,6 +24,10 @@ import org.apache.spark.sql.types.{DecimalType, DoubleType, NullType, NumericTyp
  * Type coercion helper that matches against [[Divide]] expressions in order to type coerce
  * children to [[DoubleType]].
  */
+ /**
+ 对于 Spark SQL 的解析和执行计划生成至关重要，确保了除法表达式在计算前的类型一致性。通过将操作数统一转换为 DoubleType，可以避免因类型不匹配而引发的计算错误，从而提升了系统的健壮性和执行效率。
+
+ **/
 object DivisionTypeCoercion {
   def apply(expression: Expression): Expression = expression match {
     // Decimal and Double remain the same

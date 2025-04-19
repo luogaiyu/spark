@@ -32,6 +32,9 @@ import org.apache.spark.util.ArrayImplicits._
 /**
  * Resolves the catalog of the name parts for table/view/function/namespace.
  */
+ /**
+ 处理 SQL中 表 视图 命名空间 相关的解析和管理， 增强了Spark的查询能力
+ **/
 class ResolveCatalogs(val catalogManager: CatalogManager)
   extends Rule[LogicalPlan] with LookupCatalog {
 

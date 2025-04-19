@@ -23,6 +23,8 @@ import org.apache.spark.sql.catalyst.expressions.{Alias, Expression, NamedExpres
 /**
  * Resolver class that resolves unresolved aliases and handles user-specified aliases.
  */
+ //用来确保 别名的解析是正确的没有错误的
+ // resolver: 主要涉及到 对SQL查询中各种组件的解析和验证
 class AliasResolver(expressionResolver: ExpressionResolver)
     extends TreeNodeResolver[UnresolvedAlias, Expression]
     with ResolvesExpressionChildren {

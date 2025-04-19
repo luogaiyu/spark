@@ -26,6 +26,9 @@ import org.apache.spark.sql.catalyst.trees.TreePattern.{RELATION_TIME_TRAVEL, Tr
  * The `child` must support time travel, e.g. a v2 source, and cannot be a view, subquery or stream.
  * The timestamp expression cannot refer to any columns.
  */
+ /**
+ 实现时间旅行的逻辑节点，允许用户在分析和查询中 访问特定时间和版本的数据
+ **/
 case class RelationTimeTravel(
     relation: LogicalPlan,
     timestamp: Option[Expression],

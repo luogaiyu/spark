@@ -24,6 +24,8 @@ import org.apache.spark.sql.errors.QueryCompilationErrors
  * The [[DelegatesResolutionToExtensions]] is a trait which provides a method to delegate the
  * resolution of unresolved operators to a list of [[ResolverExtension]]s.
  */
+ // 提高 spark SQL 中解析操作符的灵活性和可扩展性，通过解析工作分散到多个扩展中，
+ // 从更高层级 进行解析
 trait DelegatesResolutionToExtensions {
 
   protected val extensions: Seq[ResolverExtension]

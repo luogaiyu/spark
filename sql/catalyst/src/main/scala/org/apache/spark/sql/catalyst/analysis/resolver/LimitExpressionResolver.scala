@@ -25,6 +25,7 @@ import org.apache.spark.sql.types.IntegerType
  * The [[LimitExpressionResolver]] is a resolver that resolves a [[LocalLimit]] or [[GlobalLimit]]
  * expression and performs all the necessary validation.
  */
+ //  检查折叠性 数据类型，以及评估结果
 class LimitExpressionResolver extends TreeNodeResolver[Expression, Expression] {
 
   /**

@@ -24,7 +24,7 @@ import org.apache.spark.sql.catalyst.plans.logical.{OneRowRelation, Project}
 import org.apache.spark.sql.errors.QueryCompilationErrors
 import org.apache.spark.sql.types.TimestampType
 import org.apache.spark.sql.util.CaseInsensitiveStringMap
-
+//  提供历史数据访问能力，允许用户通过时间戳和版本号来查询历史数据
 sealed trait TimeTravelSpec
 
 case class AsOfTimestamp(timestamp: Long) extends TimeTravelSpec

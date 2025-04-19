@@ -24,6 +24,9 @@ import org.apache.spark.sql.catalyst.trees.TreePattern.DISTRIBUTED_SEQUENCE_ID
 import org.apache.spark.sql.types.LongType
 
 /**
+提供了一种处理逻辑计划中分布式序列的机制，确保在执行中能正确生成和附加序列 ID，提高了对大规模数据集的处理能力。这种设计增强了 Spark 在分布式环境中的灵活性，确保生成的序列能够与分布式数据的上下文相匹配。
+**/
+/**
  * Extracts [[DistributedSequenceID]] in logical plans, and replace it to
  * [[AttachDistributedSequence]] because this expressions requires a shuffle
  * to generate a sequence that needs the context of the whole data, e.g.,

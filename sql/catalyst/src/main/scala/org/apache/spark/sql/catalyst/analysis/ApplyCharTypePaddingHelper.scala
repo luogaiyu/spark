@@ -38,6 +38,7 @@ import org.apache.spark.unsafe.types.UTF8String
  * Helper object used by the [[ApplyCharTypePadding]] rule. This object is under catalyst
  * package in order to make the methods accessible to single-pass [[Resolver]].
  */
+ //用于处理在Spark SQL中 字符填充逻辑
 object ApplyCharTypePaddingHelper {
 
   object AttrOrOuterRef {

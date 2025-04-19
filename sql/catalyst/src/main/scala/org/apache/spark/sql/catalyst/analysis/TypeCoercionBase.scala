@@ -44,6 +44,7 @@ import org.apache.spark.sql.catalyst.rules.Rule
 import org.apache.spark.sql.connector.catalog.procedures.BoundProcedure
 import org.apache.spark.sql.types.DataType
 
+// 提供全面的规则和方法，用于处理 SQL表达式的数据类型强制转换
 abstract class TypeCoercionBase extends TypeCoercionHelper {
 
   /**

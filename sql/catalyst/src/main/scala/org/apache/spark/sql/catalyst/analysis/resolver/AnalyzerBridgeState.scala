@@ -31,6 +31,8 @@ import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
  *   catalog/table lookups in dual-run mode (when
  *   [[ANALYZER_SINGLE_PASS_RESOLVER_RELATION_BRIDGING_ENABLED]] is true).
  */
+ // 主要目的在 Spark SQL的分析过程中传递状态信息
+ // 主要为了提高性能
 case class AnalyzerBridgeState(
     relationsWithResolvedMetadata: AnalyzerBridgeState.RelationsWithResolvedMetadata =
       new AnalyzerBridgeState.RelationsWithResolvedMetadata)

@@ -37,6 +37,7 @@ import org.apache.spark.sql.catalyst.expressions.{Cast, Expression}
  * [[TypeCoercionResolver]] is used by other resolvers to uniformly apply type coercions to all
  * expressions.
  */
+ // 表达式在不同上下文中能够正确转换，用来解决强转带来的副作用
 class TypeCoercionResolver(
     timezoneAwareExpressionResolver: TimezoneAwareExpressionResolver,
     typeCoercionTransformations: Seq[Expression => Expression] = Seq.empty)

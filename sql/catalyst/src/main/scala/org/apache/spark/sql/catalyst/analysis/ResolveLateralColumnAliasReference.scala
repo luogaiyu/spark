@@ -30,7 +30,7 @@ import org.apache.spark.sql.catalyst.trees.TreePattern.{LATERAL_COLUMN_ALIAS_REF
 import org.apache.spark.sql.catalyst.util.toPrettySQL
 import org.apache.spark.sql.errors.QueryCompilationErrors
 import org.apache.spark.sql.internal.SQLConf
-
+// 用阿里解析 侧向列引用，多阶段保证 SQL查询的正确性
 // scalastyle:off line.size.limit
 /**
  * This rule is the second phase to resolve lateral column alias.

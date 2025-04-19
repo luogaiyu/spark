@@ -29,7 +29,7 @@ import org.apache.spark.sql.catalyst.trees.TreePattern.UNRESOLVED_HINT
 import org.apache.spark.sql.errors.QueryCompilationErrors
 import org.apache.spark.sql.internal.SQLConf
 
-
+// 提供灵活的查询优化手段，用于解析连接与分区的提示
 /**
  * Collection of rules related to hints. The only hint currently available is join strategy hint.
  *

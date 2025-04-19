@@ -29,6 +29,7 @@ import org.apache.spark.sql.catalyst.expressions.{Alias, Attribute}
  *  2. [[LateralColumnAliasProhibitedRegistry]] - Dummy class whose methods throw exceptions when
  *  LCA resolution is disabled by [[SQLConf.LATERAL_COLUMN_ALIAS_IMPLICIT_ENABLED]].
  */
+ // 处理侧列别名的基类 主要表示 lateral 这个关键词
 abstract class LateralColumnAliasRegistry {
   def withNewLcaScope(body: => Alias): Alias
 

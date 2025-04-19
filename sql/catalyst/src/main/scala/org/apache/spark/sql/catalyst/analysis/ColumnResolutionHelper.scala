@@ -33,7 +33,12 @@ import org.apache.spark.sql.catalyst.trees.TreePattern._
 import org.apache.spark.sql.connector.catalog.{CatalogManager, Identifier}
 import org.apache.spark.sql.errors.{DataTypeErrorsBase, QueryCompilationErrors}
 import org.apache.spark.sql.internal.SQLConf
-
+/**
+确保 查询中的列引用能够被正确解析
+1. 缺失列的添加
+2. 未解析列的绑定
+3.外部引用和全局变量的解析
+**/
 trait ColumnResolutionHelper extends Logging with DataTypeErrorsBase {
 
   def conf: SQLConf

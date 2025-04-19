@@ -21,6 +21,7 @@ package org.apache.spark.sql.catalyst.analysis
  * Represents the result of `Expression.checkInputDataTypes`.
  * We will throw `AnalysisException` in `CheckAnalysis` if `isFailure` is true.
  */
+ // 管理SQL表达式 数据类型检查结果，通过不同的实现，报告状态
 trait TypeCheckResult {
   def isFailure: Boolean = !isSuccess
   def isSuccess: Boolean

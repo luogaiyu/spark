@@ -23,7 +23,9 @@ import org.apache.spark.sql.catalyst.InternalRow
 import org.apache.spark.sql.catalyst.catalog.CatalogTypes.TablePartitionSpec
 import org.apache.spark.sql.catalyst.util.{quoteIdentifier, quoteNameParts }
 import org.apache.spark.sql.types.StructType
-
+/**
+ 这里主要是 分区已经存在的异常
+**/
 // any changes to this class should be backward compatible as it may be used by external connectors
 class PartitionAlreadyExistsException private(
     message: String,
@@ -40,7 +42,7 @@ class PartitionAlreadyExistsException private(
       Some(errorClass),
       messageParameters)
   }
-
+// 传入 TablePartitionSpec 用来解释 分区已经存在
   def this(db: String, table: String, spec: TablePartitionSpec) = {
     this(errorClass = "PARTITIONS_ALREADY_EXIST",
       Map("partitionList" -> ("PARTITION (" +

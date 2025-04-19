@@ -35,6 +35,7 @@ package org.apache.spark.sql.catalyst.analysis.resolver
  * are not implemented, and we are aware of that, so [[ExplicitlyUnsupportedResolverFeature]] will
  * be thrown in the middle of the single-pass analysis to abort it.
  */
+ // 用于 处理 Spark SQL中不支持特性的控制机制
 class ExplicitlyUnsupportedResolverFeature(reason: String)
     extends Exception(
       s"The single-pass analyzer cannot process this query or command because it does not yet " +

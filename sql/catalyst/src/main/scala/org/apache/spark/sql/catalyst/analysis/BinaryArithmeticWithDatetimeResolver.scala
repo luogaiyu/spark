@@ -56,7 +56,9 @@ import org.apache.spark.sql.types.{
   YearMonthIntervalType
 }
 import org.apache.spark.sql.types.DayTimeIntervalType.DAY
-
+/**
+本质上的目的 这个代码就是为了能够 不同的类型进行支持，例如 yyyyDDmm 的日期进行支持
+**/
 object BinaryArithmeticWithDatetimeResolver {
   def resolve(expr: Expression): Expression = expr match {
     case a @ Add(l, r, mode) =>

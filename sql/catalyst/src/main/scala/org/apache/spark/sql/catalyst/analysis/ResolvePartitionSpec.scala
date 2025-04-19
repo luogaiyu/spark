@@ -33,6 +33,7 @@ import org.apache.spark.util.ArrayImplicits._
 /**
  * Resolve [[UnresolvedPartitionSpec]] to [[ResolvedPartitionSpec]] in partition related commands.
  */
+ // 处理分区 相关的SQL的解析
 object ResolvePartitionSpec extends Rule[LogicalPlan] {
 
   def apply(plan: LogicalPlan): LogicalPlan = plan.resolveOperatorsWithPruning(

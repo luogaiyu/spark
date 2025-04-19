@@ -23,6 +23,10 @@ import org.apache.spark.sql.catalyst.trees.TreePattern.{SQL_FUNCTION_EXPRESSION,
 import org.apache.spark.sql.types.DataType
 
 /**
+ 提供 结构化 表达方式
+ 1. 在SQL查询分析和优化阶段正确处理这些函数
+**/
+/**
  * Represent a SQL function expression resolved from the catalog SQL function builder.
  */
 case class SQLFunctionExpression(

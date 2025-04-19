@@ -33,6 +33,7 @@ import org.apache.spark.sql.errors.QueryCompilationErrors
  * 3. Resolves the column to the default value expression, if the column is the assignment value
  *    and the corresponding assignment key is a top-level column.
  */
+ // 更新表达式中的列和赋值解析
 class ResolveReferencesInUpdate(val catalogManager: CatalogManager)
   extends SQLConfHelper with ColumnResolutionHelper {
 

@@ -64,6 +64,7 @@ import org.apache.spark.sql.catalyst.expressions.aggregate.AggregateExpression
  * Finally apply type coercion to the result of previous step and in case that the resulting
  * expression is [[TimeZoneAwareExpression]], apply timezone.
  */
+ // 通过将未解析的函数 转换成具体的表达式
 class FunctionResolver(
     expressionResolver: ExpressionResolver,
     timezoneAwareExpressionResolver: TimezoneAwareExpressionResolver,

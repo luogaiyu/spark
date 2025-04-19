@@ -33,6 +33,7 @@ import org.apache.spark.unsafe.types.CalendarInterval
 /**
  * Helper object for stream joins. See [[StreamingSymmetricHashJoinExec]] in SQL for more details.
  */
+ // 用于流处理时候的逻辑验证 确保在执行流处理的评估和处理时间事件的水印
 object StreamingJoinHelper extends PredicateHelper with Logging {
 
   /**

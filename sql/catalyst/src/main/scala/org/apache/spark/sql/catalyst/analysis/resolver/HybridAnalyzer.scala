@@ -50,6 +50,7 @@ import org.apache.spark.sql.internal.SQLConf
  *          plans and output schemas, and return the resolved plan from the fixed-point Analyzer.
  *   - Otherwise we run the legacy analyzer.
  * */
+ // 允许 在传统解析器和 单通道解析器之间的切换
 class HybridAnalyzer(
     legacyAnalyzer: Analyzer,
     resolverGuard: ResolverGuard,

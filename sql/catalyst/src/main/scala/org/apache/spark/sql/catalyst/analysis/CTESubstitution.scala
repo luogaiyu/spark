@@ -50,6 +50,10 @@ import org.apache.spark.sql.internal.SQLConf.LEGACY_CTE_PRECEDENCE_POLICY
  * If the query is a SQL command or DML statement (extends `CTEInChildren`),
  * place `WithCTE` into their children.
  */
+ /**
+ 处理SQL中的公共表达式：
+ 主要对 SQL中的 临时结果集 对应with语句
+ **/
 object CTESubstitution extends Rule[LogicalPlan] {
   def apply(plan: LogicalPlan): LogicalPlan = {
     if (!plan.containsPattern(UNRESOLVED_WITH)) {

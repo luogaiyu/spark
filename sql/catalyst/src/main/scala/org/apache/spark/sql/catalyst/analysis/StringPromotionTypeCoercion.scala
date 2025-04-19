@@ -43,6 +43,7 @@ import org.apache.spark.sql.types.{
  * expressions in order to type coerce children to a wider type when one of the children is a
  * string.
  */
+ // 用来处理一些 二次算数和比较字符串与其他类型之间的灵活转换
 object StringPromotionTypeCoercion {
 
   def apply(expression: Expression): Expression = expression match {

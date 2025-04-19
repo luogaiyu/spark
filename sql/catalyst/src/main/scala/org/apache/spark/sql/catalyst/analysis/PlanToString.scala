@@ -23,6 +23,7 @@ import org.apache.spark.util.Utils
 /**
  * A plan-printing utility for [[CheckAnalysis]].
  */
+ // 逻辑计划的 简洁表示
 trait PlanToString {
   protected def planToString(plan: LogicalPlan): String = {
     if (Utils.isTesting) scrubOutIds(plan.toString) else plan.toString

@@ -25,6 +25,7 @@ import org.apache.spark.sql.errors.QueryErrorsBase
  * Base class for [[TreeNode]] resolvers. All resolvers should extend this class with
  * specific [[UnresolvedNode]] and [[ResolvedNode]] types.
  */
+ // 用于定义 未解析和已解析节点之间的解析关系
 trait TreeNodeResolver[UnresolvedNode <: TreeNode[_], ResolvedNode <: TreeNode[_]]
     extends SQLConfHelper
     with QueryErrorsBase {

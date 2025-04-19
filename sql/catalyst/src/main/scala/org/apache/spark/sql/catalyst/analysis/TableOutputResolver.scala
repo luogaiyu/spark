@@ -35,7 +35,8 @@ import org.apache.spark.sql.errors.QueryCompilationErrors
 import org.apache.spark.sql.internal.SQLConf
 import org.apache.spark.sql.internal.SQLConf.StoreAssignmentPolicy
 import org.apache.spark.sql.types.{ArrayType, DataType, DecimalType, IntegralType, MapType, StructType, UserDefinedType}
-
+// 处理表输出的组件
+// 表插入，更新操作的输出解析，验证以及类型切换
 object TableOutputResolver extends SQLConfHelper with Logging {
 
   def resolveVariableOutputColumns(

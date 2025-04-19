@@ -13,7 +13,7 @@
  *
  * This file is an adaptation of Presto's presto-parser/src/main/antlr4/com/facebook/presto/sql/parser/SqlBase.g4 grammar.
  */
-
+// 用来 定义 语法(定义句子结构)
 parser grammar SqlBaseParser;
 
 options { tokenVocab = SqlBaseLexer; }
@@ -23,7 +23,7 @@ options { tokenVocab = SqlBaseLexer; }
    * When false, INTERSECT is given the greater precedence over the other set
    * operations (UNION, EXCEPT and MINUS) as per the SQL standard.
    */
-  public boolean legacy_setops_precedence_enabled = false;
+  public boolean legacy_setops_precedence_enabled = false;// 控制
 
   /**
    * When false, a literal with an exponent would be converted into
@@ -41,12 +41,12 @@ options { tokenVocab = SqlBaseLexer; }
    */
   public boolean double_quoted_identifiers = false;
 }
-
+// 复合或单个语句
 compoundOrSingleStatement
-    : singleStatement
+    : singleStatement 
     | singleCompoundStatement
     ;
-
+// 单个复合语句
 singleCompoundStatement
     : BEGIN compoundBody? END SEMICOLON? EOF
     ;

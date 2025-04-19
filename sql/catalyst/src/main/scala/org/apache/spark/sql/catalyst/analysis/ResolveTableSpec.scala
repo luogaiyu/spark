@@ -34,6 +34,7 @@ import org.apache.spark.sql.types.{ArrayType, MapType, StructType}
  * table specifications wherein these OPTIONS list values are represented as strings instead, for
  * convenience.
  */
+ // spark sql 创建或者 替换表所需要的各个选项都能正确解析
 object ResolveTableSpec extends Rule[LogicalPlan] {
   override def apply(plan: LogicalPlan): LogicalPlan = {
     val preparedPlan = if (SQLConf.get.legacyEvalCurrentTime && plan.containsPattern(COMMAND)) {

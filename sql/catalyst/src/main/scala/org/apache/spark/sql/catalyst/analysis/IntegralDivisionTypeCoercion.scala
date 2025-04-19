@@ -19,7 +19,10 @@ package org.apache.spark.sql.catalyst.analysis
 
 import org.apache.spark.sql.catalyst.expressions.{Cast, Expression, IntegralDivide}
 import org.apache.spark.sql.types.{ByteType, IntegerType, LongType, ShortType}
-
+/**
+以确保在执行整数除法时使用一致的类型。通过将操作数转换为 LongType，
+可以有效避免由于类型太小导致的溢出问题或精度丢失，从而使得 SQL 查询的执行更加安全与可靠。
+**/
 /**
  * Type coercion helper that matches against [[IntegralDivide]] expressions in order to type coerce
  * children to [[LongType]].

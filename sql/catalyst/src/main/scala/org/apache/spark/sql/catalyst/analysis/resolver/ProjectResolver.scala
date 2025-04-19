@@ -32,6 +32,7 @@ import org.apache.spark.sql.internal.SQLConf
  * operator structure using information from the scope. Detailed explanation can be found in
  * [[buildProjectWithResolvedLCAs]] method.
  */
+ // 主要用来解析 未解析的project节点
 class ProjectResolver(operatorResolver: Resolver, expressionResolver: ExpressionResolver)
     extends TreeNodeResolver[Project, LogicalPlan] {
 

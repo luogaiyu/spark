@@ -39,6 +39,7 @@ import org.apache.spark.util.ArrayImplicits._
  * Holds the name of a namespace that has yet to be looked up in a catalog. It will be resolved to
  * [[ResolvedNamespace]] during analysis.
  */
+ // 表示命名空间，表视图，函数，和分区信息等等
 case class UnresolvedNamespace(
     multipartIdentifier: Seq[String],
     fetchMetadata: Boolean = false) extends UnresolvedLeafNode

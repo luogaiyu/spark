@@ -35,6 +35,9 @@ import org.apache.spark.sql.connector.catalog.CatalogManager
  *
  * This object is one-shot per SQL query or DataFrame program resolution.
  */
+ /**
+ 通过未解析关系的元数据来填充信息，利用逻辑计划树的遍历有效处理关系解析
+ **/
 class MetadataResolver(
     override val catalogManager: CatalogManager,
     override val relationResolution: RelationResolution,

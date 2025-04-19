@@ -152,6 +152,10 @@ import org.apache.spark.sql.catalyst.plans.logical.CTERelationDef
  * @param isOpaque This flag makes this [[CteScope]] opaque for [[CTERelationDef]] lookups. It will
  *   be true for root query and [[View]]s.
  */
+
+ /**
+ 共同实现 CTE的作用域管理和解析功能，确保 SQL查询中的CTE 定义能够正确解析并支持作用域的嵌套和合并，这些组件对于解析和优化 CTE的查询非常重要
+ **/
 class CteScope(val isRoot: Boolean, val isOpaque: Boolean) {
 
   /**

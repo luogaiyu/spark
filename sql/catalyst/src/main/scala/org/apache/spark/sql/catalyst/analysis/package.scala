@@ -29,6 +29,9 @@ import org.apache.spark.sql.errors.QueryErrorsBase
  * Analysis consists of translating [[UnresolvedAttribute]]s and [[UnresolvedRelation]]s
  * into fully typed objects using information in a schema [[Catalog]].
  */
+ /**
+ 提供了解析功能
+ **/
 package object analysis {
 
   /**

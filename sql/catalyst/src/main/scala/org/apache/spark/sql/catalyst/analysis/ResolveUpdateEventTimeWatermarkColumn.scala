@@ -30,6 +30,8 @@ import org.apache.spark.sql.errors.QueryCompilationErrors
  * If the logical plan contains a [[UpdateEventTimeWatermarkColumn]] node, but no watermark
  * has been defined, the query will fail with a compilation error.
  */
+ // 主要用来处理 流数据时间时间管理关键组成部分
+
 object ResolveUpdateEventTimeWatermarkColumn extends Rule[LogicalPlan] {
 
   override def apply(plan: LogicalPlan): LogicalPlan = plan.resolveOperatorsUpWithPruning(

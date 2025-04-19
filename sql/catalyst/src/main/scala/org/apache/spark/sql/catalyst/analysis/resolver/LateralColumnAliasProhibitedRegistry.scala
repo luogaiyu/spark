@@ -27,6 +27,7 @@ import org.apache.spark.sql.catalyst.expressions.{Alias, Attribute}
  * as they should never be called on a dummy implementation. Non-getter methods must remain
  * idempotent.
  */
+ // 用于处理 侧列别名 相关的逻辑，这是个虚拟的实现
 class LateralColumnAliasProhibitedRegistry extends LateralColumnAliasRegistry {
   def withNewLcaScope(body: => Alias): Alias = body
 

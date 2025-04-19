@@ -26,6 +26,8 @@ import org.apache.spark.sql.connector.catalog.CatalogManager
  * A rule that rewrites DataFrameDropColumns to Project.
  * Note that DataFrameDropColumns allows and ignores non-existing columns.
  */
+ // 将 DataFrameDropColumns 规则转换为 Project 操作来有效地支持其功能，
+ // 从而允许用户删除列而不必担心列是否存在。这增强了 Spark SQL 的灵活性和用户友好性，简化了用户在处理 DataFrame 时的操作流程。
 class ResolveDataFrameDropColumns(val catalogManager: CatalogManager)
   extends Rule[LogicalPlan] with ColumnResolutionHelper  {
 

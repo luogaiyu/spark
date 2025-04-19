@@ -19,6 +19,7 @@ package org.apache.spark.sql.catalyst.analysis.resolver
 
 import org.apache.spark.sql.catalyst.expressions.Expression
 
+// 主要用来控制一致性
 trait ResolvesExpressionChildren {
 
   /**

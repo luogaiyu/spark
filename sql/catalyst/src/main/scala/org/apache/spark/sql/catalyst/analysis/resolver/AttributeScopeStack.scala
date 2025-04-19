@@ -45,6 +45,7 @@ import org.apache.spark.sql.catalyst.expressions.{Attribute, AttributeSet}
  * ID #1 for col2. The upper [[Project]] references `a` twice using the same ID #2 and produces a
  * new ID #3 for an alias of `a + col2`.
  */
+ // 用于管理SQL 查询中可能产生的属性作用域，确保在表达式解析和验证过程中，引用的属性都是有效和可访问的
 class AttributeScopeStack {
   private val stack = new ArrayDeque[AttributeSet]
   push()

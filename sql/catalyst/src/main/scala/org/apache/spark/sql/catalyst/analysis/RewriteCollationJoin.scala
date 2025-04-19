@@ -32,6 +32,7 @@ import org.apache.spark.util.ArrayImplicits.SparkArrayOps
  * injecting CollationKey expressions into the join condition, we can ensure that the comparison
  * is done correctly, which then allows HashJoin to work properly on this type of data.
  */
+ // 确保 更好匹配处理复杂查询，确保查询逻辑的清晰与一致
 object RewriteCollationJoin extends Rule[LogicalPlan] {
   def apply(plan: LogicalPlan): LogicalPlan = plan transform {
     case j @ Join(_, _, _, Some(condition), _) =>

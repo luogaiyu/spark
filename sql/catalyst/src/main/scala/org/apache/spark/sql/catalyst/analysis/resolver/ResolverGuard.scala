@@ -70,6 +70,7 @@ import org.apache.spark.sql.internal.SQLConf.HiveCaseSensitiveInferenceMode
  *
  * This is a one-shot object and should not be reused after [[apply]] call.
  */
+ // 检查逻辑计划中的操作符和表达式，确保SQL查询的兼容性和有效性
 class ResolverGuard(catalogManager: CatalogManager) extends SQLConfHelper {
 
   /**

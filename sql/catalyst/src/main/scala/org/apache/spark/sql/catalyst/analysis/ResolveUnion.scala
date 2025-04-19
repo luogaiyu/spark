@@ -30,6 +30,9 @@ import org.apache.spark.sql.util.SchemaUtils
 /**
  * Resolves different children of Union to a common set of columns.
  */
+ /**
+ Spark 处理union 操作的重要组成部分，确保 在合并不同的源的数据的表，结构一致性
+ **/
 object ResolveUnion extends Rule[LogicalPlan] {
   /**
    * Transform the array of structs to the target struct type.

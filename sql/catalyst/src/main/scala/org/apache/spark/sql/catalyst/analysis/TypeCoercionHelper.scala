@@ -87,6 +87,7 @@ import org.apache.spark.sql.types.{
   TimestampTypeExpression
 }
 
+//  Spark SQL 中处理数据类型的强制转换，通过定义不同的规则和辅助方法
 abstract class TypeCoercionHelper {
 
   /**

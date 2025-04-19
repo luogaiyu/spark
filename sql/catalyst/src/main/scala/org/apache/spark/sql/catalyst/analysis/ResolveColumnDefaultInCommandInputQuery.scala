@@ -40,6 +40,10 @@ import org.apache.spark.sql.types.StructField
  * 3. The plan nodes between [[UnresolvedInlineTable]] and command are either
  *    [[Project]], or [[Aggregate]], or [[SubqueryAlias]].
  */
+ /**
+  执行插入和变量设置
+  使得 SQL查询更加灵活和强大
+ **/
 class ResolveColumnDefaultInCommandInputQuery(val catalogManager: CatalogManager)
   extends SQLConfHelper with ColumnResolutionHelper {
 

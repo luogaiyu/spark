@@ -36,6 +36,7 @@ import org.apache.spark.sql.types.{IntegerType, StructField, StructType}
 import org.apache.spark.sql.util.CaseInsensitiveStringMap
 import org.apache.spark.util.ArrayImplicits._
 
+//  提供插入 更新和删除 能够更高效的重写逻辑计划
 trait RewriteRowLevelCommand extends Rule[LogicalPlan] {
 
   private final val DELTA_OPERATIONS_WITH_ROW =

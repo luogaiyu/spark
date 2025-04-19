@@ -24,6 +24,7 @@ import org.apache.spark.sql.util.CaseInsensitiveStringMap
  * which were processed by the [[MetadataResolver]] to substitute the unresolved relations in single
  * pass during the analysis phase.
  */
+ // 为SQL查询和解析提供一个简洁有效的标识符
 case class RelationId(
     multipartIdentifier: Seq[String],
     options: CaseInsensitiveStringMap = CaseInsensitiveStringMap.empty,

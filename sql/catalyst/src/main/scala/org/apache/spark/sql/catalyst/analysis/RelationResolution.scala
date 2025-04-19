@@ -43,7 +43,9 @@ import org.apache.spark.sql.execution.datasources.v2.DataSourceV2Relation
 import org.apache.spark.sql.internal.SQLConf
 import org.apache.spark.sql.util.CaseInsensitiveStringMap
 import org.apache.spark.util.ArrayImplicits._
-
+/**
+确保 在DML 和Select 查询中 确保 SQL 语句 正确解析 
+**/
 class RelationResolution(override val catalogManager: CatalogManager)
     extends DataTypeErrorsBase
     with Logging

@@ -23,6 +23,7 @@ import org.apache.spark.sql.catalyst.expressions.{ConditionalExpression, Express
 /**
  * Resolver for [[If]], [[CaseWhen]] and [[Coalesce]] expressions.
  */
+ // 确保在逻辑计划中引用的条件表达式是有效，还是一个验证的方法
 class ConditionalExpressionResolver(
     expressionResolver: ExpressionResolver,
     timezoneAwareExpressionResolver: TimezoneAwareExpressionResolver)

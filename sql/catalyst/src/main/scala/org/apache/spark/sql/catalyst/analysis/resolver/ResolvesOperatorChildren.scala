@@ -22,6 +22,7 @@ import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
 /**
  * A mixin trait for all operator resolvers that need to resolve their children.
  */
+ // 用来简化 SQL解析的复杂操作
 trait ResolvesOperatorChildren {
 
   /**

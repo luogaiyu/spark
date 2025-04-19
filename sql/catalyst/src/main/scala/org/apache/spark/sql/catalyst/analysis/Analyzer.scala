@@ -74,6 +74,13 @@ import org.apache.spark.util.ArrayImplicits._
  * Built-in function registry is set for Spark Connect project to test unresolved
  * functions.
  */
+ /**
+ 1. 用于处理 列解析， 包括嵌套字段或复杂表达式，自动解析查询中未解析的列引用
+ 2. 处理缺失列： 查询逻辑计划中，使用缺失列，向下查找并补入
+ 3. 支持变量解析
+ 4. 支持外部引用
+ 5. 泛化处理流程
+ **/
 object SimpleAnalyzer extends Analyzer(
   new CatalogManager(
     FakeV2SessionCatalog,

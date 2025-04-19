@@ -32,6 +32,8 @@ import org.apache.spark.unsafe.types.CalendarInterval
  * figure out how many windows a time column can map to, we over-estimate the number of windows and
  * filter out the rows where the time column is not inside the time window.
  */
+ // 定义处理时间窗口相关的对象和规则 
+ // expand
 object TimeWindowing extends Rule[LogicalPlan] {
   import org.apache.spark.sql.catalyst.dsl.expressions._
 

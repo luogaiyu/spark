@@ -27,6 +27,7 @@ import org.apache.spark.sql.types.{DataType, StringType}
  * Resolves string types in DDL commands, where the string type inherits the
  * collation from the corresponding object (table/view -> schema -> catalog).
  */
+ // 确保执行DDL 命令时， 所有的字符串类型都能正确即成和应用 适当的排序规则,如果没有使用，默认是 utf8 
 object ResolveDDLCommandStringTypes extends Rule[LogicalPlan] {
   def apply(plan: LogicalPlan): LogicalPlan = {
     if (isDDLCommand(plan)) {

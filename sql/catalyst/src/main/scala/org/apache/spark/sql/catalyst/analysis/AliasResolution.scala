@@ -32,12 +32,17 @@ import org.apache.spark.sql.catalyst.expressions.{
 import org.apache.spark.sql.catalyst.trees.TreePattern.UNRESOLVED_ALIAS
 import org.apache.spark.sql.catalyst.util.{toPrettySQL, AUTO_GENERATED_ALIAS}
 import org.apache.spark.sql.types.MetadataBuilder
-
+/**
+1. Spark  SQL 中处理别名解析
+2. 自动生成别名
+3. 处理不同类型表达式的别名
+**/
 object AliasResolution {
+  // 检查表达式序列中 是否存在未解析的别名
   def hasUnresolvedAlias(exprs: Seq[NamedExpression]): Boolean = {
     exprs.exists(_.exists(_.isInstanceOf[UnresolvedAlias]))
   }
-
+  // 为所有
   def assignAliases(exprs: Seq[NamedExpression]): Seq[NamedExpression] = {
     exprs
       .map(_.transformUpWithPruning(_.containsPattern(UNRESOLVED_ALIAS)) {
@@ -45,14 +50,21 @@ object AliasResolution {
       })
       .asInstanceOf[Seq[NamedExpression]]
   }
-
+/**
+**/
   def resolve(u: UnresolvedAlias): Expression = {
+    // 1. 从未解析别名对象 u中 解构出 child (原始表达式)
     val UnresolvedAlias(child, optGenAliasFunc) = u
     child match {
+      // 2. 如果 child 是 NamedExpression 类型, 则直接返回 child
       case ne: NamedExpression => ne
+      // 3. 如果 child 是 GeneratorOuter 类型, 并且 g.resolved 为 true, 则返回 MultiAlias(go, Nil)
       case go @ GeneratorOuter(g: Generator) if g.resolved => MultiAlias(go, Nil)
+      // 4. 如果 child 未解析, 则返回 u
       case e if !e.resolved => u
+      // 5. 如果 child 是 Generator 类型, 则返回 MultiAlias(g, Nil)
       case g: Generator => MultiAlias(g, Nil)
+      // 6. 如果 child 是 Cast 类型, 并且 ne 是 NamedExpression 类型, 则返回 Alias(c, ne.name)()
       case c @ Cast(ne: NamedExpression, _, _, _) => Alias(c, ne.name)()
       case e: ExtractValue if extractOnly(e) => Alias(e, toPrettySQL(e))()
       case e if optGenAliasFunc.isDefined =>

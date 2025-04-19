@@ -23,6 +23,7 @@ import org.apache.spark.sql.catalyst.expressions.{Expression, UnaryMinus}
 /**
  * Resolver for [[UnaryMinus]]. Resolves children and applies type coercion to target node.
  */
+ // 用来处理一元负号表达式和类型强制转换，确保表达式 在SQL上下文被处理
 class UnaryMinusResolver(
     expressionResolver: ExpressionResolver,
     timezoneAwareExpressionResolver: TimezoneAwareExpressionResolver)

@@ -27,6 +27,9 @@ import org.apache.spark.sql.types.StringType
 /**
  * Resolves the identifier expressions and builds the original plans/expressions.
  */
+ /**
+ 对列引用
+ **/
 object ResolveIdentifierClause extends Rule[LogicalPlan] with AliasHelper with EvalHelper {
 
   override def apply(plan: LogicalPlan): LogicalPlan = plan.resolveOperatorsUpWithPruning(

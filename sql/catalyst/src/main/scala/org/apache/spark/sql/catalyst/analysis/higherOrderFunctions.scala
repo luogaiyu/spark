@@ -25,7 +25,10 @@ import org.apache.spark.sql.catalyst.util.TypeUtils.{toSQLConf, toSQLId}
 import org.apache.spark.sql.errors.QueryCompilationErrors
 import org.apache.spark.sql.internal.SQLConf
 import org.apache.spark.sql.types.DataType
-
+/**
+用于解析 高阶函数中的lambda变量的对象
+用于 Spark SQL的分析阶段，对代码的解释
+**/
 /**
  * Resolve the lambda variables exposed by a higher order functions.
  *

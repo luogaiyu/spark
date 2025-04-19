@@ -29,6 +29,7 @@ import org.apache.spark.sql.catalyst.expressions.{Expression, TimeZoneAwareExpre
  * @constructor Creates a new TimezoneAwareExpressionResolver with the given expression resolver.
  * @param expressionResolver The [[ExpressionResolver]] used to resolve child expressions.
  */
+ // 对时区做本地化处理
 class TimezoneAwareExpressionResolver(expressionResolver: TreeNodeResolver[Expression, Expression])
     extends TreeNodeResolver[TimeZoneAwareExpression, Expression]
     with ResolvesExpressionChildren {

@@ -25,6 +25,7 @@ import org.apache.spark.sql.errors.QueryCompilationErrors
 import org.apache.spark.sql.internal.SQLConf
 import org.apache.spark.sql.types.{AtomicType, DataType, DecimalType, StringType}
 
+// SQL 在查询阶段 检查各种可能不支持的操作，特别是在处理流操作
 object UpCastResolution extends SQLConfHelper {
   def resolve(unresolvedUpCast: UpCast): Expression = unresolvedUpCast match {
     case UpCast(_, target, _) if target != DecimalType && !target.isInstanceOf[DataType] =>

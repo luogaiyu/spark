@@ -26,6 +26,7 @@ import org.apache.spark.sql.catalyst.trees.TreePattern.COMMAND
  * These commands support a flag, "ifExists", so that they do not fail when a relation is not
  * resolved. If the "ifExists" flag is set to true. the plan is resolved to [[NoopCommand]],
  */
+ //  用于执行一些SQL命令， 当出现 if Exists 不会失败
 object ResolveCommandsWithIfExists extends Rule[LogicalPlan] {
   def apply(plan: LogicalPlan): LogicalPlan = plan.resolveOperatorsUpWithPruning(
     _.containsPattern(COMMAND)) {

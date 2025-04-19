@@ -46,6 +46,10 @@ import org.apache.spark.util.ArrayImplicits._
  *   2) the database name is always case-sensitive here, callers are responsible to
  *      format the database name w.r.t. case-sensitive config.
  */
+ /**
+ 用于spark中 函数的注册和查找
+ 
+ **/
 trait FunctionRegistryBase[T] {
 
   type FunctionBuilder = Seq[Expression] => T

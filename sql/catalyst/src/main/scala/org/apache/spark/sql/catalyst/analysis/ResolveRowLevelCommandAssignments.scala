@@ -35,6 +35,10 @@ import org.apache.spark.sql.internal.SQLConf.StoreAssignmentPolicy
  * This rule does not apply to tables that accept any schema. Such tables must inject their own
  * rules to resolve assignments.
  */
+ /**
+ 解析 SQL行级命令，入update merge 等命令
+ 确保 赋值表达式
+ **/
 object ResolveRowLevelCommandAssignments extends Rule[LogicalPlan] {
 
   override def apply(plan: LogicalPlan): LogicalPlan = plan.resolveOperatorsWithPruning(

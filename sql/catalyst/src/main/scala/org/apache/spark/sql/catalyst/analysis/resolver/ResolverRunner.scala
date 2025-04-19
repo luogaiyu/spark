@@ -28,6 +28,7 @@ import org.apache.spark.sql.internal.SQLConf
  * resolution and post-processing of resolved plan. This post-processing is necessary in order to
  * either fully resolve the plan or stay compatible with the fixed-point analyzer.
  */
+ // 提供结果话的方式来处理 SQL的解析，单遍处理和后处理
 class ResolverRunner(
     resolver: Resolver,
     extendedResolutionChecks: Seq[LogicalPlan => Unit] = Seq.empty

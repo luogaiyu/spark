@@ -25,6 +25,7 @@ import java.util.function.Function
  * The [[KeyTransformingMap]] is a partial implementation of [[mutable.Map]] that transforms input
  * keys with a custom [[mapKey]] method.
  */
+ // 提供了一个灵活的映射关系，自定义的map key 来控制 键的转换方式
 private abstract class KeyTransformingMap[K, V] {
   private val impl = new HashMap[K, V]
 

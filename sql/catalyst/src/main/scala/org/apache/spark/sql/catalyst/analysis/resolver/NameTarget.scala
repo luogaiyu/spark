@@ -59,6 +59,7 @@ import org.apache.spark.sql.errors.QueryCompilationErrors
  * @param output [[output]] of a [[NameScope]] that produced this [[NameTarget]]. Used to provide
  *   suggestions for thrown errors.
  */
+ // 用于处理标识符解析的候选项和相关信息
 case class NameTarget(
     candidates: Seq[Expression],
     aliasName: Option[String] = None,

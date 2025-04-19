@@ -28,7 +28,9 @@ import org.apache.spark.sql.catalyst.expressions.{
   VirtualColumn
 }
 import org.apache.spark.sql.catalyst.util.toPrettySQL
-
+/**
+用于定义和描述 字面量 Literal
+**/
 /**
  * Resolves literal functions by mapping them to their ''real'' function counterparts.
  */

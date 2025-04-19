@@ -16,8 +16,8 @@
  */
 package org.apache.spark.sql.catalyst.parser
 
-import org.antlr.v4.runtime.ParserRuleContext
 
+import org.antlr.v4.runtime.ParserRuleContext
 import org.apache.spark.sql.catalyst.{FunctionIdentifier, TableIdentifier}
 import org.apache.spark.sql.catalyst.expressions.Expression
 import org.apache.spark.sql.catalyst.parser.ParserUtils.withOrigin
@@ -26,6 +26,7 @@ import org.apache.spark.sql.catalyst.trees.Origin
 import org.apache.spark.sql.errors.QueryParsingErrors
 import org.apache.spark.sql.internal.SQLConf
 
+// 这个主要用来暴露 使用anltr4来进行接口调用的方法
 /**
  * Base class for all ANTLR4 [[ParserInterface]] implementations.
  */
@@ -33,15 +34,17 @@ abstract class AbstractSqlParser extends AbstractParser with ParserInterface {
   override def astBuilder: AstBuilder
 
   /** Creates Expression for a given SQL string. */
+  // 解析SQL 表达式
   override def parseExpression(sqlText: String): Expression =
     parse(sqlText) { parser =>
-      val ctx = parser.singleExpression()
+      val ctx = parser.singleExpression()//获取 解析的上下文
       withErrorHandling(ctx, Some(sqlText)) {
-        astBuilder.visitSingleExpression(ctx)
+        astBuilder.visitSingleExpression(ctx)//使用访问者模式 构建AST
       }
     }
 
   /** Creates TableIdentifier for a given SQL string. */
+  // 解析表标识符
   override def parseTableIdentifier(sqlText: String): TableIdentifier =
     parse(sqlText) { parser =>
       val ctx = parser.singleTableIdentifier()

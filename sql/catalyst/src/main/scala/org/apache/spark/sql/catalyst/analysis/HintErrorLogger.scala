@@ -25,6 +25,7 @@ import org.apache.spark.sql.catalyst.plans.logical.{HintErrorHandler, HintInfo}
 /**
  * The hint error handler that logs warnings for each hint error.
  */
+ // 用于捕获和记录 与提示相关的错误和警告，这种机制 对于调试和优化SQL查询至关重要
 object HintErrorLogger extends HintErrorHandler with Logging {
   import org.apache.spark.sql.connector.catalog.CatalogV2Implicits._
 

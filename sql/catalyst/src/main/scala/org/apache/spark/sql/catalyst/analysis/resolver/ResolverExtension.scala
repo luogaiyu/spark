@@ -24,6 +24,7 @@ import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
  * External code that needs specific node types to be resolved has to implement this trait and
  * inject the implementation into the [[Analyzer.singlePassResolverExtensions]].
  */
+ // 提供解析扩展的机制，可以支持新的 自定义的逻辑计划操作符
 trait ResolverExtension {
 
   /**

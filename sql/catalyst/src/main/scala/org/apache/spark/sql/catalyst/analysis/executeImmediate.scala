@@ -35,6 +35,10 @@ import org.apache.spark.sql.types.StringType
  * @param query query string or variable
  * @param targetVariables variables to store the result of the query
  */
+ /**
+ 主要用于处理 SQL 中的 EXECUTE IMMEDIATE 查询。这个类的目的是解析和实现执行即时 SQL 查询的逻辑，
+ 尤其是动态地执行一个字符串形式的 SQL 语句，并将结果存储在目标变量中。下面是对这段代码的详细解释。
+ **/
 case class ExecuteImmediateQuery(
     args: Seq[Expression],
     query: Either[String, UnresolvedAttribute],

@@ -21,7 +21,9 @@ import org.apache.spark.sql.catalyst.plans.logical.{DescribeNamespace, LogicalPl
 import org.apache.spark.sql.catalyst.rules.Rule
 import org.apache.spark.sql.catalyst.trees.TreePattern.COMMAND
 import org.apache.spark.sql.internal.SQLConf
-
+/**
+灵活 调整 SQL命令的输出格式
+**/
 /**
  * A rule for keeping the SQL command's legacy outputs.
  */

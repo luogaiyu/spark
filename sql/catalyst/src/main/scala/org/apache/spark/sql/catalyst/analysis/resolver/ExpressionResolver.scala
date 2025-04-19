@@ -78,6 +78,7 @@ import org.apache.spark.sql.types.MetadataBuilder
  * @param functionResolution [[FunctionResolution]] to resolve function expressions.
  * @param planLogger [[PlanLogger]] to log expression tree resolution events.
  */
+ // 通过遍历SQL查询中的表达式树，携带必要上下文
 class ExpressionResolver(
     resolver: Resolver,
     functionResolution: FunctionResolution,

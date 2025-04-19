@@ -67,6 +67,7 @@ import org.apache.spark.sql.errors.QueryCompilationErrors
  * @param attributes Output attributes from currently resolved [[NameScope]], to which the registry
  *                   belongs.
  */
+// 确保 lateral 关键字 在查询生成动态列的情况下，能够有效管理属性和别名依赖关系
 class LateralColumnAliasRegistryImpl(attributes: Seq[Attribute])
     extends LateralColumnAliasRegistry {
   private case class AliasReference(attribute: Attribute, dependencyLevel: Int)

@@ -46,12 +46,12 @@ import org.apache.spark.util.Utils.getUriBuilder
  * Concrete parser for Spark SQL statements.
  */
 class SparkSqlParser extends AbstractSqlParser {
-  val astBuilder = new SparkSqlAstBuilder()
+  val astBuilder = new SparkSqlAstBuilder()// 构建AST构建器
 
-  private val substitutor = new VariableSubstitution()
-
+  private val substitutor = new VariableSubstitution()// 变量替换器 主要用于替换 当前的变量引用
+  // 访问修饰符： 表示这个方法只能被子类型访问
   protected override def parse[T](command: String)(toResult: SqlBaseParser => T): T = {
-    super.parse(substitutor.substitute(command))(toResult)
+    super.parse(substitutor.substitute(command))(toResult) // 本质上 柯里化 就是提供更高程度的复用，先进行变量替换再进行解析
   }
 }
 
@@ -68,8 +68,8 @@ class SparkSqlAstBuilder extends AstBuilder {
   private val strLiteralDef = """(".*?[^\\]"|'.*?[^\\]'|[^ \n\r\t"']+)""".r
 
   private def withCatalogIdentClause(
-      ctx: CatalogIdentifierReferenceContext,
-      builder: Seq[String] => LogicalPlan): LogicalPlan = {
+      ctx: CatalogIdentifierReferenceContext,// antlr 解析器上下文  
+      builder: Seq[String] => LogicalPlan): LogicalPlan = { // 构建器 接受一个字符串序列 返回一个逻辑计划 
     val exprCtx = ctx.expression
     if (exprCtx != null) {
       // resolve later in analyzer

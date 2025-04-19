@@ -29,6 +29,7 @@ import org.apache.spark.sql.catalyst.trees.TreePattern.{CTE, PLAN_EXPRESSION}
 /**
  * Updates CTE references with the resolve output attributes of corresponding CTE definitions.
  */
+ 
 object ResolveWithCTE extends Rule[LogicalPlan] {
   override def apply(plan: LogicalPlan): LogicalPlan = {
     if (plan.containsAllPatterns(CTE)) {

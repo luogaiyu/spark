@@ -28,6 +28,7 @@ import org.apache.spark.sql.connector.catalog.CatalogManager
  * fixed-point [[Analyzer]] run. We strictly rely on the [[AnalyzerBridgeState]] to avoid any
  * blocking calls here.
  */
+ // 解析过程中 高效处理元数据的关系，相当于 对元数据的索引信息做了一层缓存
 class BridgedRelationMetadataProvider(
     override val catalogManager: CatalogManager,
     override val relationResolution: RelationResolution,

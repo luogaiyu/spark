@@ -27,6 +27,7 @@ import org.apache.spark.sql.types.DataType
  * Replace [[TimeZoneAwareExpression]] without timezone id by its copy with session local
  * time zone.
  */
+ //  正确应用会话的本地分区
 object ResolveTimeZone extends Rule[LogicalPlan] {
   private val transformTimeZoneExprs: PartialFunction[Expression, Expression] = {
     case e: TimeZoneAwareExpression if e.timeZoneId.isEmpty =>

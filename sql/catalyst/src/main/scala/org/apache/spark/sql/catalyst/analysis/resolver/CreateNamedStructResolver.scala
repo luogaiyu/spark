@@ -34,7 +34,7 @@ class CreateNamedStructResolver(expressionResolver: ExpressionResolver)
     CreateNamedStructResolver.cleanupAliases(createNamedStructWithResolvedChildren)
   }
 }
-
+// 解析和清楚命名结构表达式的功能，确保生成的逻辑计划有效且没有多余的别名
 object CreateNamedStructResolver {
 
   /**

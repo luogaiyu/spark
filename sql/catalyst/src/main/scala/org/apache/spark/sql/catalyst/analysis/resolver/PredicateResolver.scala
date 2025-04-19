@@ -36,6 +36,7 @@ import org.apache.spark.sql.internal.SQLConf
  * Resolver class for resolving all [[Predicate]] expressions. Recursively resolves all children
  * and applies selected type coercions to the expression.
  */
+ // 确保 执行过程中 不会因为类型不匹配而失败，在处理字符串填充时，还会检查填充过程中的潜在问题
 class PredicateResolver(
     expressionResolver: ExpressionResolver,
     timezoneAwareExpressionResolver: TimezoneAwareExpressionResolver)

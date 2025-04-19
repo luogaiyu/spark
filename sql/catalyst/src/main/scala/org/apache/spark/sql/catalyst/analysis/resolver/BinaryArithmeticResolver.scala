@@ -83,6 +83,7 @@ import org.apache.spark.sql.types.{DateType, StringType}
  * resolving it. Finally, after resolving the subtree, we need to resolve the top-most node itself,
  * which in this case means applying a timezone, if necessary.
  */
+ // 对算术运算提供解析和转化的功能，包括对日期时间运算的特别处理，以及在解析过程中应用合适的类型转换
 class BinaryArithmeticResolver(
     expressionResolver: ExpressionResolver,
     timezoneAwareExpressionResolver: TimezoneAwareExpressionResolver)

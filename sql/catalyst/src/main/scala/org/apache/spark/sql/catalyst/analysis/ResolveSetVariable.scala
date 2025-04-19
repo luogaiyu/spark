@@ -31,6 +31,7 @@ import org.apache.spark.sql.types.IntegerType
  * Resolves the target SQL variables that we want to set in SetVariable, and add cast if necessary
  * to make the assignment valid.
  */
+ // 目标变量，检查重复和处理赋值等等逻辑
 class ResolveSetVariable(val catalogManager: CatalogManager) extends Rule[LogicalPlan]
   with ColumnResolutionHelper {
 

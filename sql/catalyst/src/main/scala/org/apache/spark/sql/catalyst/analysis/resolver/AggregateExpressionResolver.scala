@@ -137,8 +137,8 @@ class AggregateExpressionResolver(
 
 object AggregateExpressionResolver {
   // Ordering in the list of type coercions should be in sync with the list in [[TypeCoercion]].
-  private val TYPE_COERCION_TRANSFORMATIONS: Seq[Expression => Expression] = Seq(
     CollationTypeCoercion.apply,
+  private val TYPE_COERCION_TRANSFORMATIONS: Seq[Expression => Expression] = Seq(
     TypeCoercion.InTypeCoercion.apply,
     TypeCoercion.FunctionArgumentTypeCoercion.apply,
     TypeCoercion.IfTypeCoercion.apply,

@@ -32,7 +32,7 @@ import org.apache.spark.sql.errors.{QueryCompilationErrors, QueryExecutionErrors
 import org.apache.spark.sql.types.{DataType, Metadata, StructType}
 import org.apache.spark.sql.util.{CaseInsensitiveStringMap, SchemaUtils}
 import org.apache.spark.util.ArrayImplicits._
-
+// 它定义了一些基础类和功能，用于处理未解析的树节点。 
 /**
  * Thrown when an invalid attempt is made to access a property of a tree that has yet to be fully
  * resolved.

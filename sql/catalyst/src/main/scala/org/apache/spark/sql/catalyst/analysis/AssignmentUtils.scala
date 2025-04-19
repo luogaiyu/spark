@@ -30,6 +30,14 @@ import org.apache.spark.sql.errors.QueryCompilationErrors
 import org.apache.spark.sql.types.{DataType, StructType}
 import org.apache.spark.util.ArrayImplicits._
 
+// 处理列的赋值相关操作的工具类 
+/**
+对更新操作 进行对齐和验证，确保用户指定的列 在语义上是一致的
+对插入操作赋值 进行对齐与校验
+
+主要用于 Update 和Insert 操作 
+**/
+
 object AssignmentUtils extends SQLConfHelper with CastSupport {
 
   /**
@@ -51,11 +59,12 @@ object AssignmentUtils extends SQLConfHelper with CastSupport {
    * @param assignments assignments to align
    * @return aligned update assignments that match table attributes
    */
+   // 为更新操作中的赋值 对齐表的顶层或嵌套字段，返回验证后的更新表达式
   def alignUpdateAssignments(
-      attrs: Seq[Attribute],
+      attrs: Seq[Attribute]// 表中所有的字段
       assignments: Seq[Assignment]): Seq[Assignment] = {
 
-    val errors = new mutable.ArrayBuffer[String]()
+    val errors = new mutable.ArrayBuffer[String]()// 收集验证过程中产生的错误信息
 
     val output = attrs.map { attr =>
       applyAssignments(
@@ -86,6 +95,7 @@ object AssignmentUtils extends SQLConfHelper with CastSupport {
    * @param assignments insert assignments to align
    * @return aligned insert assignments that match table attributes
    */
+   // 为插入操作的表中赋值对齐表结构
   def alignInsertAssignments(
       attrs: Seq[Attribute],
       assignments: Seq[Assignment]): Seq[Assignment] = {

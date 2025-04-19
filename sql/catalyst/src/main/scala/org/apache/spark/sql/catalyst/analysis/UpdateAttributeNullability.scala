@@ -31,6 +31,7 @@ import org.apache.spark.sql.catalyst.trees.AlwaysProcess
  * (e.g., NULL propagation) and wrong answers.
  * See SPARK-13484 and SPARK-13801 for the concrete queries of this case.
  */
+ // 更新属性的可空性，基于子节点输出的可空性
 object UpdateAttributeNullability extends Rule[LogicalPlan] {
 
   def apply(plan: LogicalPlan): LogicalPlan = plan.resolveOperatorsUpWithPruning(

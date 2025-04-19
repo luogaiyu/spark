@@ -153,6 +153,7 @@ import org.apache.spark.sql.errors.QueryCompilationErrors
  *    operator's resolution algorithm and remap _old_ expression IDs to those chosen attributes.
  *  - Continue remapping expressions until we reach the root of the operator tree.
  */
+ // 提供系统来管理表达式 别名 和属性ID的分配，确保在解析和分析阶段，表达式ID的一致性和唯一性
 class ExpressionIdAssigner {
   private val mappingStack = new ExpressionIdAssigner.Stack
   mappingStack.push(ExpressionIdAssigner.StackEntry(isLeftmostBranch = true))

@@ -29,6 +29,7 @@ import org.apache.spark.sql.internal.SQLConf
  * The [[ViewResolver]] resolves view plans that were already reconstructed by [[SessionCatalog]]
  * from the view text and view metadata (schema, configs).
  */
+ // 确保视图的元数据和结构进行解析，同样也是一个准确解析的兜底功能
 class ViewResolver(resolver: Resolver, catalogManager: CatalogManager)
     extends TreeNodeResolver[View, View] {
   private val cteRegistry = resolver.getCteRegistry

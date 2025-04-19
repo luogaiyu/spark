@@ -52,6 +52,11 @@ import org.apache.spark.sql.types.{
  * ANSI type coercion helper that matches against expressions in order to type coerce children to
  * a wider type when one of the children is a string.
  */
+ /**
+ 这段代码定义了一个名为 AnsiStringPromotionTypeCoercion 的对象，用于在 ANSI 模式 下对表达式进行类型强制转换，当表达式包含字符串类型 (StringType) 时，自动将其提升为更宽泛的、符合操作需求的数据类型。它的主要目的是确保 SQL 查询中操作符（如加减乘除等）在涉及字符串类型时能够正确执行，同时符合 ANSI SQL 标准。
+ ANSI SQL（American National Standards Institute SQL）指的是由美国国家标准协会制定的 SQL 标准，旨在定义一个统一的结构化查询语言规范。ANSI SQL 的主要特点是它强调严格的语法规则和一致的行为
+
+ **/
 object AnsiStringPromotionTypeCoercion {
   def apply(expression: Expression): Expression = expression match {
     case b @ BinaryOperator(left, right)
